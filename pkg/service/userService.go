@@ -35,6 +35,7 @@ func (s *Service) SignUp(user *entity.User) (int, error) {
 		return http.StatusInternalServerError, err
 	} else if isExist && !userInDB.IsEmailVerified {
 		//update and resend
+		user.ID = userInDB.ID
 		if err = s.repo.UpdateUser(user); err != nil {
 			return http.StatusInternalServerError, err
 		}
