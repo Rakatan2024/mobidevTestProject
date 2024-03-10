@@ -4,13 +4,14 @@ import (
 	"database/sql"
 	"errors"
 	"fmt"
-	"github.com/golang-jwt/jwt"
-	"golang.org/x/crypto/bcrypt"
-	"mobidevtestProject/pkg/entity"
 	"math/rand"
+	"mobidevtestProject/pkg/entity"
 	"net/http"
 	"net/smtp"
 	"time"
+
+	"github.com/golang-jwt/jwt"
+	"golang.org/x/crypto/bcrypt"
 )
 
 type UserServiceInterface interface {
@@ -29,6 +30,7 @@ func (s *Service) SignUp(user *entity.User) (int, error) {
 	}
 	user.EncryptedPass = string(hashedPass)
 	isExist, err, userInDB := s.CheckUserExistence(user)
+	fmt.Println(isExist, "ffffffffff")
 	if err != nil {
 		return http.StatusInternalServerError, err
 	} else if isExist && !userInDB.IsEmailVerified {
@@ -47,6 +49,7 @@ func (s *Service) SignUp(user *entity.User) (int, error) {
 		if err = s.InsertVerificationEmail(user.ID, emailContent, verificationLink); err != nil {
 			return http.StatusInternalServerError, err
 		}
+		return http.StatusOK, nil
 	} else if isExist && userInDB.IsEmailVerified {
 		return http.StatusBadRequest, errors.New("user with this email already exists")
 	}

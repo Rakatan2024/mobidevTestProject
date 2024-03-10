@@ -17,7 +17,7 @@ func (h *Handler) SignUp(w http.ResponseWriter, r *http.Request) {
 		//fmt.Println("bad request is correct")
 		return
 	}
-	fmt.Println(user)
+	//fmt.Println(user)
 	if status, err := h.svc.SignUp(&user); err != nil {
 		w.Header().Add("Content-Type", "application/json")
 		w.WriteHeader(status)

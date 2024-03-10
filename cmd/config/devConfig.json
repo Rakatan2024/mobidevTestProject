@@ -1,5 +1,5 @@
 {
-  "HTTPPort": ":80",
+  "HTTPPort": ":8080",
   "DBAddr": "./sqlite3DB/forum.db",
   "DBDriver": "sqlite3"
 }
