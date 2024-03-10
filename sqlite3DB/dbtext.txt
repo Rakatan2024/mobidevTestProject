@@ -1,0 +1,27 @@
+-- database: c:\Users\777\Desktop\GolandProjects\Dostap-Backend-main\sqlite3DB\database.db
+
+-- Use the ▷ button in the top right corner to run the entire file.
+
+
+CREATE TABLE verify_emails (
+    id INTEGER PRIMARY KEY,
+    user_id INTEGER REFERENCES users(id) NOT NULL,
+    email VARCHAR NOT NULL,
+    secret_code VARCHAR NOT NULL,
+    is_used BOOLEAN DEFAULT 0,
+    expired_at TIMESTAMP NOT NULL DEFAULT (datetime('now', '+48 hours'))
+);
+CREATE TABLE users (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  first_name VARCHAR,
+  last_name VARCHAR,
+  encrypted_password VARCHAR,
+  avatar_link VARCHAR,
+  gender VARCHAR,
+  age INTEGER,
+  phone_number VARCHAR,
+  city_of_residence VARCHAR,
+  description TEXT,
+  email STRING UNIQUE,
+  is_email_verified BOOLEAN DEFAULT 0
+);
