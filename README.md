@@ -2,7 +2,7 @@
 1) Проект, в котором я ранее использовали module, package, exported names и структурировал проект.
 2) Проект, в котором я ранее использовал errors, panic, recover ( panic, recover мне не приходилось использовать, но я понимаю для чего они нужны)
 3) Проект, где вы ранее  работали с JSON (Marshalling & Unmarshalling) - в проекте я в принципе с фронтом общаюсь по средством Json файлов,  а так же с jwt токенами.
-4) Создайте API для того, чтобы можно было реализовать регистрацию и авторизацию: эндпоинты /signup, /login реализуют эти функции
+4) Создайте API для того, чтобы можно было реализовать регистрацию и авторизацию: эндпоинты /signup, /login(Post запросы) реализуют эти функции
 {
     "first_name": "Erkanat",
     "last_name" : "Azamtov",
@@ -20,14 +20,14 @@
     "email": "rakhat.oshakbayev@gmail.com"
     "password": "Kanat"
 } - это пример JSON файла логина
-5) На основе задачи 5 создайте API запросы, чтобы пользователи могли менять свои данные - данную функцию реализует эндпойнт /updateProfile
+5) На основе задачи 5 создайте API запросы, чтобы пользователи могли менять свои данные - данную функцию реализует эндпойнт /updateProfile(Post запрос)
 {
     "jwtToken": {
         "Token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InJha2hhdC5vc2hha2JheWV2QGdtYWlsLmNvbSIsImxldmVsIjoidXNlciIsImV4cCI6MTcxMDA2NTk4MX0.ss-Xj-2uUeXAuSoNVUVGW7QKvxQQd6fZwyHusFZKsA8"
     },
     "userInfo":{
         "first_name": "Erkanat",
-        "last_name" : "Malhayev",
+        "last_name" : "Mahayev",
         "password": "Kanat",
         "avatar_link": "AZAZAZ",
         "gender": "false",
@@ -36,4 +36,5 @@
         "city_of_residence":"Astana",
         "description": "test of login post request",
         }
-} - это пример JSON файла для смены данных
+} - это пример JSON файла для смены данных(чтобы сменить их нужно зарегистрироваться и войти в аккаунт для получения токена)
+6) Создайте API для авторазицию через админ доступ, где можно редактировать данные из формы - к сожалению я не успел реализовать данную функцию:3
