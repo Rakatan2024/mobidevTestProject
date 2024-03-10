@@ -6,6 +6,7 @@ import (
 	"mobidevtestProject/logs"
 	"mobidevtestProject/pkg"
 	"os"
+	_ "github.com/mattn/go-sqlite3"
 )
 
 func main() {
